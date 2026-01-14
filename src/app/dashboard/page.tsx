@@ -5,7 +5,7 @@ import type { TeamMember } from '@/types';
 export default async function DashboardPage() {
   const supabase = await createClient();
 
-  // LOCAL-ONLY: Get first organization (create if missing)
+  // Get first organization (create if missing)
   let { data: org } = await supabase
     .from('organizations')
     .select('id')
