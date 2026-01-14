@@ -594,7 +594,7 @@ export function TeamDashboardTab({ orgId }: TeamDashboardTabProps) {
 
       <DeleteConfirmDialog
         open={deleteDialogOpen}
-        onClose={() => setDeleteDialogOpen(false)}
+        onOpenChange={(open) => setDeleteDialogOpen(open)}
         onConfirm={handleConfirmDelete}
         title="Delete Team Member"
         description={`Are you sure you want to delete "${deletingMember?.name}"? This will also delete all their projects, engagements, events, and ratings. This action cannot be undone.`}

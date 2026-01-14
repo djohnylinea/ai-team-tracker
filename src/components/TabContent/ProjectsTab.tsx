@@ -133,7 +133,7 @@ export function ProjectsTab({ member, editMode, orgId }: ProjectsTabProps) {
   };
 
   const handleExportCSV = () => {
-    const csvContent = arrayToCSV(projects, [
+    const csvContent = arrayToCSV(projects as unknown as Record<string, unknown>[], [
       { key: 'name', header: 'Project Name' },
       { key: 'type', header: 'Type' },
       { key: 'source', header: 'Source' },

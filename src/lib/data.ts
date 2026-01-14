@@ -54,13 +54,7 @@ export interface Engagement {
   endDate: string | null;
 }
 
-export interface TimeOff {
-  id: string;
-  type: string;
-  startDate: string;
-  endDate: string;
-  notes: string | null;
-}
+// TimeOff interface is defined later in the file with TimeOffType
 
 export interface Event {
   id: string;
@@ -257,10 +251,11 @@ export async function fetchTimeOff(memberId: string): Promise<TimeOff[]> {
 
   return (data || []).map(t => ({
     id: t.id,
-    type: t.type,
+    memberId: t.member_id,
+    type: t.type as TimeOffType,
     startDate: t.start_date,
     endDate: t.end_date,
-    notes: t.notes,
+    notes: t.notes || '',
   }));
 }
 

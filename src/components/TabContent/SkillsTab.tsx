@@ -234,7 +234,7 @@ export function SkillsTab({ member, editMode, orgId }: SkillsTabProps) {
       {/* Delete Confirmation Dialog */}
       <DeleteConfirmDialog
         open={deleteDialogOpen}
-        onClose={() => setDeleteDialogOpen(false)}
+        onOpenChange={(open) => setDeleteDialogOpen(open)}
         onConfirm={handleConfirmDelete}
         title="Remove Tool from Catalog"
         description={`Are you sure you want to remove "${deletingTool?.toolName}" from the catalog? This will remove it for all team members.`}

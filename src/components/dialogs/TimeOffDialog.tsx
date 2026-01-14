@@ -52,8 +52,8 @@ export function TimeOffDialog({
       if (timeOff) {
         setStartDate(timeOff.startDate);
         setEndDate(timeOff.endDate);
-        setType(timeOff.type);
-        setNotes(timeOff.notes);
+        setType(timeOff.type as TimeOffType);
+        setNotes(timeOff.notes || '');
       } else {
         // Default to today for new entries
         const today = new Date().toISOString().split('T')[0];

@@ -68,9 +68,9 @@ export function AwarenessTab({ member, editMode, orgId }: AwarenessTabProps) {
     if (newArea) {
       // Add to local state with rating=0
       setRatings(prev => [...prev, {
-        id: `new-${newArea.id}`,
-        areaId: newArea.id,
-        areaKey: newArea.areaKey,
+        id: `new-${newArea.key}`,
+        areaId: newArea.key,
+        areaKey: newArea.key,
         areaLabel: newArea.label,
         areaDescription: newArea.description || '',
         rating: 0,
@@ -260,7 +260,7 @@ export function AwarenessTab({ member, editMode, orgId }: AwarenessTabProps) {
       {/* Delete Confirmation Dialog */}
       <DeleteConfirmDialog
         open={deleteDialogOpen}
-        onClose={() => setDeleteDialogOpen(false)}
+        onOpenChange={(open) => setDeleteDialogOpen(open)}
         onConfirm={handleConfirmDelete}
         title="Remove Awareness Area from Catalog"
         description={`Are you sure you want to remove "${deletingArea?.areaLabel}" from the catalog? This will remove it for all team members.`}
