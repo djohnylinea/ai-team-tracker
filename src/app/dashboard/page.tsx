@@ -24,10 +24,11 @@ export default async function DashboardPage() {
 
   const orgId = org?.id || '';
 
-  // Fetch all team members (no auth/org filter for local mode)
+  // Fetch all team members for this organization
   const { data: dbMembers, error } = await supabase
     .from('team_members')
     .select('id, name, role_title, avatar_initials')
+    .eq('org_id', orgId)
     .order('name');
 
   if (error) {
