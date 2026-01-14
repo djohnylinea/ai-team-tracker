@@ -95,8 +95,7 @@ export async function fetchMemberOverview(memberId: string): Promise<MemberOverv
   const { data: engagements } = await supabase
     .from('engagements')
     .select('id, allocation_percent')
-    .eq('member_id', memberId)
-    .is('end_date', null); // Active engagements
+    .eq('member_id', memberId);
 
   const engagementCount = engagements?.length || 0;
   const allocation = engagements?.reduce((sum, e) => sum + (e.allocation_percent || 0), 0) || 0;
